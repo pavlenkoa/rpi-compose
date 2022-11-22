@@ -1,0 +1,37 @@
+hotbun.co {
+    redir https://emby.hotbun.co
+
+    tls {
+    	dns cloudflare {env.CF_API_TOKEN}
+    }
+}
+
+emby.hotbun.co {
+    reverse_proxy 192.168.1.2:8096
+
+    tls {
+    	dns cloudflare {env.CF_API_TOKEN}
+    }
+}
+
+transmission.hotbun.co {
+    reverse_proxy 192.168.1.2:9091
+
+    tls {
+    	dns cloudflare {env.CF_API_TOKEN}
+    }
+}
+
+
+
+s.hotbun.co {
+    root * /var/www/s.hotbun.co
+
+    file_server
+
+    tls {
+    	dns cloudflare {env.CF_API_TOKEN}
+    }
+}
+
+

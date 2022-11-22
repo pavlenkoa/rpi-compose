@@ -1,0 +1,5 @@
+# Ignore everything in this directory
+*
+# Except this file
+!wg0.conf_example
+!.gitignore

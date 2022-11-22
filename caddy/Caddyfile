@@ -1,37 +1,41 @@
+{
+  acme_dns cloudflare {env.CF_API_TOKEN}
+}
+
+(basic_auth) {
+    basicauth {
+       {env.BASIC_AUTH_USER} {env.BASIC_AUTH_PASSWORD} 
+    }
+}
+
 hotbun.co {
     redir https://emby.hotbun.co
-
-    tls {
-    	dns cloudflare {env.CF_API_TOKEN}
-    }
 }
 
 emby.hotbun.co {
     reverse_proxy 192.168.1.2:8096
-
-    tls {
-    	dns cloudflare {env.CF_API_TOKEN}
-    }
 }
 
 transmission.hotbun.co {
     reverse_proxy 192.168.1.2:9091
-
-    tls {
-    	dns cloudflare {env.CF_API_TOKEN}
-    }
 }
 
+grafana.hotbun.co {
+    reverse_proxy 192.168.1.2:3000
+}
 
+prometheus.hotbun.co {
+    import basic_auth
+    reverse_proxy 192.168.1.2:9090
+}
+
+alertmanager.hotbun.co {
+    import basic_auth
+    reverse_proxy 192.168.1.2:9093
+}
 
 s.hotbun.co {
     root * /var/www/s.hotbun.co
-
     file_server
-
-    tls {
-    	dns cloudflare {env.CF_API_TOKEN}
-    }
 }
-
 

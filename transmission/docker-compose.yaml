@@ -3,7 +3,7 @@ version: "3.7"
 
 services:
   transmission:
-    image: lscr.io/linuxserver/transmission:latest
+    image: lscr.io/linuxserver/transmission:4.0.5
     container_name: transmission
     network_mode: service:wireguard
     environment:
@@ -14,10 +14,13 @@ services:
       - PASS=${password}
     volumes:
       - ./transmission-config:/config
-      - /media/transmission/downloads:/downloads
       - /media/transmission/watch:/watch
+      - /media/emby/tv:/downloads/tv
+      - /media/emby/movies:/downloads/movies
+      - /media/emby/tvanimation:/downloads/tvanimation
+      - /media/emby/animation:/downloads/animation
     restart: unless-stopped
-
+  
   wireguard:
     image: linuxserver/wireguard
     container_name: wireguard
@@ -34,8 +37,8 @@ services:
     ports:
       - 51820:51820/udp
       - 9091:9091
-      - 51413:51413
-      - 51413:51413/udp
+      - 55352:55352
+      - 55352:55352/udp
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: always

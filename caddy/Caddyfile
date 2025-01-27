@@ -4,38 +4,37 @@
 
 (basic_auth) {
     basicauth {
-       {env.BASIC_AUTH_USER} {env.BASIC_AUTH_PASSWORD} 
+       {env.BASIC_AUTH_USER} {env.BASIC_AUTH_PASSWORD}
     }
 }
 
-hotbun.co {
-    redir https://emby.hotbun.co
+pavlenko.sh {
+    redir https://emby.pavlenko.sh
 }
 
-emby.hotbun.co {
+emby.pavlenko.sh {
     reverse_proxy 192.168.1.2:8096
 }
 
-transmission.hotbun.co {
+transmission.pavlenko.sh {
     reverse_proxy 192.168.1.2:9091
 }
 
-grafana.hotbun.co {
+grafana.pavlenko.sh {
     reverse_proxy 192.168.1.2:3000
 }
 
-prometheus.hotbun.co {
+prometheus.pavlenko.sh {
     import basic_auth
     reverse_proxy 192.168.1.2:9090
 }
 
-alertmanager.hotbun.co {
+alertmanager.pavlenko.sh {
     import basic_auth
     reverse_proxy 192.168.1.2:9093
 }
 
-s.hotbun.co {
-    root * /var/www/s.hotbun.co
+s.pavlenko.sh {
+    root * /var/www/s.pavlenko.sh
     file_server
 }
-

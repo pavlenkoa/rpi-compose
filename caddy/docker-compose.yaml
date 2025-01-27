@@ -15,7 +15,7 @@ services:
     volumes:
       - ./data:/data
       - ./config:/config
-      - ~/s.hotbun.co:/var/www/s.hotbun.co
+      - ~/s.pavlenko.sh:/var/www/s.pavlenko.sh
       - type: bind
         source: ./Caddyfile
         target: /etc/caddy/Caddyfile

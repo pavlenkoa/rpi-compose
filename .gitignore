@@ -1,1 +1,16 @@
+# Environment files
 **/.env
+
+# Service-specific data directories
+emby/config/
+
+caddy/data/
+caddy/config/
+
+# Logs
+**/logs/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db

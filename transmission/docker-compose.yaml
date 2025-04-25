@@ -37,7 +37,7 @@ services:
     ports:
       - 51820:51820/udp
       - 9091:9091
-      - 55352:55352
+      - 55352:55352/tcp
       - 55352:55352/udp
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1

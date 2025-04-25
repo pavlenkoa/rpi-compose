@@ -24,14 +24,18 @@ grafana.pavlenko.sh {
     reverse_proxy 192.168.1.2:3000
 }
 
-prometheus.pavlenko.sh {
+victoriametrics.pavlenko.sh {
     import basic_auth
-    reverse_proxy 192.168.1.2:9090
+    reverse_proxy 192.168.1.2:8428
 }
 
 alertmanager.pavlenko.sh {
     import basic_auth
     reverse_proxy 192.168.1.2:9093
+}
+
+photos.pavlenko.sh {
+    reverse_proxy 192.168.1.2:2283
 }
 
 s.pavlenko.sh {
